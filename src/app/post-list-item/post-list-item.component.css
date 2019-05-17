@@ -1,0 +1,12 @@
+
+button{
+    margin-right: 5px !important;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.date{
+    float: right;
+}

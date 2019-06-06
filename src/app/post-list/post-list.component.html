@@ -1,8 +1,19 @@
 
 <div class="row">
-  <div class="col-md-12">
-    <ul class="list-group" *ngFor="let postlist of postsList">
-        <app-post-list-item [postlistitem]="postlist"></app-post-list-item>
+  <div class="col-md-12 mb-4">
+    <h2 class="my-4">Posts</h2>
+    <ul class="list-group" *ngFor="let post of posts; let i = index">
+      <li [ngClass]="{'list-group-item': true,
+      'list-group-item-success': post.loveIts > 0,
+      'list-group-item-danger': post.loveIts < 0 }">
+      <span class="title">{{ post.title }}</span> 
+      <span class="date">{{ post.createdAt | date: 'd/MM/y à HH:mm' }}</span> <br><br>
+      {{ post.content }} <br><br>
+      <button class="btn btn-success" (click)="onMoreLove(post)">Love it!</button>
+      <button class="btn btn-danger" (click)="onLessLove(post)">Don't love it!</button>
+      {{post.loveIts}} Like(s)
+      <button class="btn btn-danger right" (click)="onRemove(post, i)">Supprimer post</button>
+      </li>
     </ul>
   </div>
 </div>

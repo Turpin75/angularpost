@@ -1,5 +1,8 @@
-
+<app-header></app-header>
 <div class="container">
-  <h1>Posts</h1>
-  <app-post-list [postsList]="posts" ></app-post-list>
+  <div class="row">
+    <div class="col-md-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
